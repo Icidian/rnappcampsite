@@ -4,7 +4,6 @@ import { Card, Icon, Rating, Input } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
 import { postFavorite } from '../redux/ActionCreators';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { postComment } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
@@ -67,7 +66,7 @@ function RenderComments({comments}) {
                 readonly
                 startingValue={this.state.rating}
                 imageSize={10}
-                style={{alignItems:'flex-start', paddingVertical='5%'}}
+                style={{alignItems:'flex-start', paddingVertical:'5%'}}
                 />
                 <Text style={{fontSize: 12}}>{`-- ${item.author}, ${item.date}`}</Text>
             </View>
@@ -104,7 +103,7 @@ class CampsiteInfo extends Component {
 
     handleComment(campsiteId) {
         this.toggleModal();
-        postComment(campsiteId)
+        postComment(campsiteId, this.state.rating, this.state.author, this.state.text)
     }
 
     resetForm() {
